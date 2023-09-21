@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:umbiapps/pages/Homepage.dart';
 import 'package:umbiapps/pages/CartPage.dart';
 import 'package:umbiapps/pages/ItemPage.dart';
+import 'package:umbiapps/pages/userPage.dart';
+import 'package:umbiapps/pages/HisPage.dart';
 
 void main()=> runApp(MyApp());
 
@@ -16,7 +18,10 @@ class MyApp extends StatelessWidget{
       routes: {
         "/" : (context) => HomePage(),
         "CartPage" : (context) => CartPage(),
-        "ItemPage": (context) => ItemPage(),
+        "ItemPage" : (context) => ItemPage(),
+        "Home"     : (context) => HomePage(), 
+        "History"  : (context) => HisPage(),
+        "Profile"  : (context) => userPage(),
       },
     ); //MaterialApp
   }

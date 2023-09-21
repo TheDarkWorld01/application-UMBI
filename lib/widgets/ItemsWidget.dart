@@ -9,7 +9,7 @@ class ItemsWidget extends StatelessWidget{
       crossAxisCount: 2,
       shrinkWrap: true,
       children: [
-        for (int i=1; i < 6; i++)
+        for (int i=1; i < 9; i++)
         Container(
           padding: EdgeInsets.only(left: 15, right: 15, top: 10),
           margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
@@ -29,7 +29,7 @@ class ItemsWidget extends StatelessWidget{
                       borderRadius: BorderRadius.circular(20)
                     ),
                     child: Text(
-                      "50%",
+                      "1 PCS",
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.white,
@@ -68,35 +68,35 @@ class ItemsWidget extends StatelessWidget{
                   ),
                 ),
               ),
-            ],
-          ),
-        ),
-        Container(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            "Description product",
-            style: TextStyle(
-              fontSize: 14,
-              color: Color(0xFF4C53A5),
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "\Rp.00",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF4C53A5),
+              Container(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Description product",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Color(0xFF4C53A5),
+                  ),
                 ),
               ),
-              Icon(
-                Icons.shopping_cart_checkout,
-                color: Color(0xFF4C53A5),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "\Rp.00",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF4C53A5),
+                      ),
+                    ),
+                    Icon(
+                      Icons.shopping_cart_checkout,
+                      color: Color(0xFF4C53A5),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

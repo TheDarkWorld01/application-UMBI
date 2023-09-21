@@ -36,22 +36,22 @@ class CartPage extends StatelessWidget{
                           color: Color(0xFF4C53A5),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.white,
-                        ),
+                        // child: Icon(
+                        //   Icons.add,
+                        //   color: Colors.white,
+                        // ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Text(
-                          "Tambahkan kode kupon",
-                          style: TextStyle(
-                            color: Color(0xFF4C53A5),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16
-                          ),
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: EdgeInsets.symmetric(horizontal: 10),
+                      //   child: Text(
+                      //     "Tambahkan kode kupon",
+                      //     style: TextStyle(
+                      //       color: Color(0xFF4C53A5),
+                      //       fontWeight: FontWeight.bold,
+                      //       fontSize: 16
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

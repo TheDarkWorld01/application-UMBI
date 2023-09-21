@@ -35,7 +35,7 @@ class ItemBottomNavbar extends StatelessWidget{
               onPressed: () {},
               icon: Icon(CupertinoIcons.cart_badge_plus),
               label: Text(
-                "Tambahkan ke keranjang belanja",
+                "Tambahkan pesanan",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

@@ -68,6 +68,11 @@ flutter:
     - asset/images/4.png
     - asset/images/5.png
     - asset/images/6.png
+    - asset/images/7.png
+    - asset/images/8.png
+    - asset/images/9.png
+    - asset/images/10.png
+    - asset/profil/images.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
