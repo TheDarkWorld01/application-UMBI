@@ -4,6 +4,8 @@ import 'package:umbiapps/pages/CartPage.dart';
 import 'package:umbiapps/pages/ItemPage.dart';
 import 'package:umbiapps/pages/userPage.dart';
 import 'package:umbiapps/pages/HisPage.dart';
+import 'package:umbiapps/pages/setsPage.dart';
+import 'package:umbiapps/pages/paypage.dart';
 
 void main()=> runApp(MyApp());
 
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget{
         "Home"     : (context) => HomePage(), 
         "History"  : (context) => HisPage(),
         "Profile"  : (context) => userPage(),
+        "setsPage" : (context) => setsPage(),
+        "Bayar"    : (context) => payPage(),
       },
     ); //MaterialApp
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:umbiapps/pages/paypage.dart';
 
-class CartBottomNavBar extends StatelessWidget {
+class payButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -32,32 +31,20 @@ class CartBottomNavBar extends StatelessWidget {
                 ),
               ],
             ),
-            GestureDetector(
-              onTap: () {
-                // Navigasi ke halaman lain saat tombol "Checkout" diklik
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => payPage(),
-                  ),
-                );
-              },
-              child: Container(
-                alignment: Alignment.center,
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0xFF4C53A5),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Text(
-                  "Check Out",
-                  style: TextStyle(
+            Container(
+              alignment: Alignment.center,
+              height: 50,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0xFF4C53A5),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                "Check Out",
+                style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
+                    color: Colors.white),
               ),
             ),
           ],

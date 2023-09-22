@@ -29,7 +29,7 @@ class ProfilBar extends StatelessWidget {
           Spacer(),
           InkWell(
               onTap: () {
-                Navigator.pushNamed(context, "CartPage");
+                Navigator.pushNamed(context, "setsPage");
               },
               child: Icon(
                 Icons.settings,

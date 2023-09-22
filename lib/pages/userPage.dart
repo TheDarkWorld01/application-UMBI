@@ -33,72 +33,157 @@ class userPage extends StatelessWidget {
                   backgroundImage: AssetImage(
                       "asset/profil/images.jpg"), // Ganti dengan path foto profil
                 ),
-                SizedBox(height: 20),
-                Card(
-                  elevation: 5,
-                  margin: EdgeInsets.symmetric(horizontal: 20),
-                  child: Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          initialValue: "Security Xploit7",
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                          decoration: InputDecoration(
-                            labelText: "Nama",
-                            labelStyle: TextStyle(
-                              fontSize: 16,
+                Container(
+                  height: 80,
+                  margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.person_2_outlined,
+                              size: 20,
+                              color: Color(0xFF4C53A5),
                             ),
-                            border: OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Nama Pengguna",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                                 color: Color(0xFF4C53A5),
                               ),
                             ),
-                          ),
+                            Text(
+                              "Syahrul Agung Fathoni",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Color(0xFF4C53A5),
+                              ),
+                            )
+                          ],
                         ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          initialValue: "secxploit7@gmail.com",
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                          decoration: InputDecoration(
-                            labelText: "Email",
-                            labelStyle: TextStyle(
-                              fontSize: 16,
+                      ),
+                      
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 80,
+                  margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.mail_outlined,
+                              size: 20,
+                              color: Color(0xFF4C53A5),
                             ),
-                            border: OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Email",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                                 color: Color(0xFF4C53A5),
                               ),
                             ),
-                          ),
+                            Text(
+                              "syahrulfathoni516@gmail.com",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Color(0xFF4C53A5),
+                              ),
+                            )
+                          ],
                         ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          initialValue: "+62 8587970126",
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                          decoration: InputDecoration(
-                            labelText: "Telepon",
-                            labelStyle: TextStyle(
-                              fontSize: 16,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 80,
+                  margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.phone_android,
+                              size: 20,
+                              color: Color(0xFF4C53A5),
                             ),
-                            border: OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Telepon",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                                 color: Color(0xFF4C53A5),
                               ),
                             ),
-                          ),
+                            Text(
+                              "+62 85879707126",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Color(0xFF4C53A5),
+                              ),
+                            )
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ],
