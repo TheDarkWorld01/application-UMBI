@@ -40,7 +40,7 @@ class payButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
-                "Check Out",
+                "Bayar Sekarang",
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
