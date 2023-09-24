@@ -21,19 +21,13 @@ class payBar extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 20),
             child: Text(
-              "Keranjang Belanja",
+              "Pembayaran",
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF4C53A5),
               ),
             ),
-          ),
-          Spacer(),
-          Icon(
-            Icons.more_vert,
-            size: 30,
-            color: Color(0xFF4C53A5),
           ),
         ],
       ),
