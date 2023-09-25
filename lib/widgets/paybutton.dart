@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:umbiapps/pages/pinPage.dart';
 class payButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -39,12 +39,18 @@ class payButton extends StatelessWidget {
                 color: Color(0xFF4C53A5),
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Text(
-                "Bayar Sekarang",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              child: TextButton(
+                onPressed: () {
+                  // Menggunakan Navigator untuk berpindah ke halaman PIN
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => pinPage()));
+                },
+                child: Text(
+                  "Bayar Sekarang",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
             ),
           ],
