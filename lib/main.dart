@@ -7,6 +7,7 @@ import 'package:umbiapps/pages/HisPage.dart';
 import 'package:umbiapps/pages/setsPage.dart';
 import 'package:umbiapps/pages/paypage.dart';
 import 'package:umbiapps/pages/pinPage.dart';
+import 'package:umbiapps/pages/locationPage.dart';
 
 void main()=> runApp(MyApp());
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget{
         "setsPage" : (context) => setsPage(),
         "Bayar"    : (context) => payPage(),
         "Pin"      : (context) => pinPage(),
+        "Location" : (context) => locationPage(),
       },
     ); //MaterialApp
   }
