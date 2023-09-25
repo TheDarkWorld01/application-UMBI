@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:umbiapps/widgets/itempay.dart';
 import 'package:umbiapps/widgets/paybar.dart';
 import 'package:umbiapps/widgets/paybutton.dart';
-class locationPage extends StatelessWidget {
+class pesananSayaPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {

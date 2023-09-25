@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:umbiapps/pages/locationPage.dart';
+import 'package:umbiapps/pages/successPage.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart'; // Mengimpor paket yang diperlukan
 
 class pinPage extends StatefulWidget {
@@ -30,7 +30,7 @@ class _pinPageState extends State<pinPage> {
       Future.delayed(Duration(seconds: 2), () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => locationPage()),
+          MaterialPageRoute(builder: (context) => SuccessPage()),
         );
         // Setelah selesai, sembunyikan modal progress HUD
         setState(() {
