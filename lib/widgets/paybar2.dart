@@ -4,7 +4,7 @@ class payBarii extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.transparent,
+      color: Color(0xFFEDECF2),
       padding: EdgeInsets.all(25),
       child: Row(
         children: [
