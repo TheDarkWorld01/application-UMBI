@@ -132,6 +132,7 @@ class _pinPageState extends State<pinPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  SizedBox(width: 95,),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 16),
                     child: _buildPinButton('0'),
@@ -168,10 +169,11 @@ class _pinPageState extends State<pinPage> {
       child: Icon(
         Icons.clear_sharp,
         color: Colors.purple,
+        size: 16,
       ),
       style: ElevatedButton.styleFrom(
         primary: Colors.white,
-        onPrimary: Colors.purple,
+        onPrimary: const Color.fromARGB(255, 38, 34, 39),
         shape: CircleBorder(),
         padding: EdgeInsets.all(16),
       ),
