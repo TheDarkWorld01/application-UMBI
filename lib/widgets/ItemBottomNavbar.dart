@@ -24,7 +24,7 @@ class ItemBottomNavbar extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Rp.00",
+              "Rp.18.000",
               style: TextStyle(
                 color: Color(0xFF4C53A5),
                 fontSize: 25,

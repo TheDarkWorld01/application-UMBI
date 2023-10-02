@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  modal_progress_hud_nsn: ^0.4.0
   flutter:
     sdk: flutter
 
@@ -70,8 +71,6 @@ flutter:
     - asset/images/6.png
     - asset/images/7.png
     - asset/images/8.png
-    - asset/images/9.png
-    - asset/images/10.png
     - asset/profil/images.jpg
     - asset/payment/1.png
     - asset/payment/2.png

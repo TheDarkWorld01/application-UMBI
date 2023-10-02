@@ -8,7 +8,6 @@ class CategoriesWidget extends StatelessWidget{
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          for (int i = 1; i < 6; i++)
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
             padding: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
@@ -19,17 +18,53 @@ class CategoriesWidget extends StatelessWidget{
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  "asset/images/$i.png",
-                  width: 40,
-                  height: 40,
-                ),
                 Text(
                   "Makanan",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 20,
 
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Minuman",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Snack",
+                  style: TextStyle(
+                    color: Color(0xFF929BFF),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
                   ),
                 ),
               ],

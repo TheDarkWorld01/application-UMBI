@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class payBar extends StatelessWidget {
+class payBarii extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Color(0xFFEDECF2),
       padding: EdgeInsets.all(25),
       child: Row(
         children: [
@@ -21,19 +21,13 @@ class payBar extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 20),
             child: Text(
-              "Pembayaran",
+              "Pesanan Saya",
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF4C53A5),
               ),
             ),
-          ),
-          Spacer(),
-          Icon(
-            Icons.more_vert,
-            size: 30,
-            color: Color(0xFF4C53A5),
           ),
         ],
       ),
