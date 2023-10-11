@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:umbiapps/pages/pinpage.dart';
-
 class payButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,31 +31,25 @@ class payButton extends StatelessWidget {
                 ),
               ],
             ),
-            GestureDetector(
-              onTap: () {
-                // Navigasi ke halaman lain saat tombol "Checkout" diklik
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => pinPage(),
-                  ),
-                );
-              },
-              child: Container(
-                alignment: Alignment.center,
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0xFF4C53A5),
-                  borderRadius: BorderRadius.circular(20),
-                ),
+            Container(
+              alignment: Alignment.center,
+              height: 50,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0xFF4C53A5),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: TextButton(
+                onPressed: () {
+                  // Menggunakan Navigator untuk berpindah ke halaman PIN
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => pinPage()));
+                },
                 child: Text(
                   "Bayar Sekarang",
                   style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
             ),
