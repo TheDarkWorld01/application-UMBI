@@ -6,8 +6,8 @@ import 'package:umbiapps/pages/userPage.dart';
 import 'package:umbiapps/pages/HisPage.dart';
 import 'package:umbiapps/pages/setsPage.dart';
 import 'package:umbiapps/pages/paypage.dart';
-import 'package:umbiapps/pages/pinPage.dart';
-import 'package:umbiapps/pages/pesananSayaPage.dart';
+import 'package:umbiapps/pages/pinpage.dart';
+import 'package:umbiapps/pages/pesananPage.dart';
 
 void main()=> runApp(MyApp());
 

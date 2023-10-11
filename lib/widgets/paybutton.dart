@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:umbiapps/pages/pinPage.dart';
+import 'package:umbiapps/pages/pinpage.dart';
 class payButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

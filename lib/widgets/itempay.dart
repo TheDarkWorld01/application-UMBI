@@ -109,31 +109,31 @@ class ItemPay extends StatelessWidget {
           ),
         ),
         for (int i = 1; i < 5; i++)
-        Container(
-          height: 80,
-          margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
+          Container(
+            height: 80,
+            margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: [
+                Radio(
+                  value: "",
+                  groupValue: "",
+                  activeColor: Color(0xFF4C53A5),
+                  onChanged: (index) {},
+                ),
+                Container(
+                  height: 90,
+                  width: 90,
+                  margin: EdgeInsets.only(right: 15),
+                  child: Image.asset("asset/payment/$i.png"),
+                ),
+              ],
+            ),
           ),
-          child: Row(
-            children: [
-              Radio(
-                value: "",
-                groupValue: "",
-                activeColor: Color(0xFF4C53A5),
-                onChanged: (index) {},
-              ),
-              Container(
-                height: 90,
-                width: 90,
-                margin: EdgeInsets.only(right: 15),
-                child: Image.asset("asset/payment/$i.png"),
-              ),
-            ],
-          ),
-        ),
       ],
     );
   }
