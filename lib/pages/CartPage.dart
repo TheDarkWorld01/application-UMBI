@@ -3,17 +3,35 @@ import 'package:umbiapps/widgets/CartAppBar.dart';
 import 'package:umbiapps/widgets/CartItemSamples.dart';
 import 'package:umbiapps/widgets/CartBottomNavBar.dart';
 
-class CartPage extends StatelessWidget{
+class CartPage extends StatefulWidget{
+  @override
+  _CartPageState createState() => _CartPageState();
+}
+
+class _CartPageState extends State<CartPage> {
+  final locationNotifier = ValueNotifier("Pilih Lokasi anda");
+  bool isLocationFilled = false; // Variable untuk melacak apakah lokasi sudah diisi
+
+  // Fungsi ini akan dipanggil ketika lokasi diisi
+  void onLocationFilled() {
+    setState(() {
+      isLocationFilled = true;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         children: [
-          CartAppBar(),
+          CartAppBar(
+            onLocationFilled: onLocationFilled,
+            locationNotifier: locationNotifier,  
+          ), // Mengirimkan callback
           Container(
             height: 700,
             padding: EdgeInsets.only(top: 15),
             decoration: BoxDecoration(
+              
               color: Color(0xFFEDECF2),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(35),
@@ -24,9 +42,7 @@ class CartPage extends StatelessWidget{
               children: [
                 CartItemSamples(),
                 Container(
-                  // decoration: BoxDecoration(
-                  //   borderRadius: BorderRadius.circular(10),
-                  // ),
+                  alignment: Alignment.bottomCenter,
                   margin: EdgeInsets.symmetric(vertical: 20,horizontal: 10),
                   padding: EdgeInsets.all(10),
                   child: Row(
@@ -36,22 +52,7 @@ class CartPage extends StatelessWidget{
                           color: Color(0xFF4C53A5),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        // child: Icon(
-                        //   Icons.add,
-                        //   color: Colors.white,
-                        // ),
                       ),
-                      // Padding(
-                      //   padding: EdgeInsets.symmetric(horizontal: 10),
-                      //   child: Text(
-                      //     "Tambahkan kode kupon",
-                      //     style: TextStyle(
-                      //       color: Color(0xFF4C53A5),
-                      //       fontWeight: FontWeight.bold,
-                      //       fontSize: 16
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),
@@ -60,7 +61,7 @@ class CartPage extends StatelessWidget{
           ),
         ],
       ),
-      bottomNavigationBar: CartBottomNavBar(),
+      bottomNavigationBar: CartBottomNavBar(isLocationFilled: isLocationFilled), // Mengirimkan status
     );
   }
 }

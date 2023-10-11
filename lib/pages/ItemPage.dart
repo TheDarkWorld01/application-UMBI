@@ -15,7 +15,7 @@ class ItemPage extends StatelessWidget{
           ItemAppBar(),
           Padding(
             padding: EdgeInsets.all(16),
-            child: Image.asset("asset/images/1.png",height: 300),
+            // child: Image.asset("asset/images/1.png",height: 300),
           ),
           Arc(
             edge: Edge.TOP,

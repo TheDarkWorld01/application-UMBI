@@ -1,7 +1,13 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:umbiapps/pages/paypage.dart';
 
 class CartBottomNavBar extends StatelessWidget {
+  final bool isLocationFilled; // Menerima status isLocationFilled
+
+  CartBottomNavBar({required this.isLocationFilled});
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -33,21 +39,24 @@ class CartBottomNavBar extends StatelessWidget {
               ],
             ),
             GestureDetector(
-              onTap: () {
-                // Navigasi ke halaman lain saat tombol "Checkout" diklik
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => payPage(),
-                  ),
-                );
-              },
+              onTap: isLocationFilled 
+                  ? () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => payPage(),
+                        ),
+                      );
+                    }
+                  : null, // Nonaktifkan tombol jika isLocationFilled adalah false
               child: Container(
                 alignment: Alignment.center,
                 height: 50,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color(0xFF4C53A5),
+                  color: isLocationFilled
+                      ? Color(0xFF4C53A5)
+                      : Colors.grey, // Warna abu-abu jika tidak aktif
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
