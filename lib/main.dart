@@ -8,7 +8,6 @@ import 'package:umbiapps/pages/setsPage.dart';
 import 'package:umbiapps/pages/paypage.dart';
 import 'package:umbiapps/pages/pinPage.dart';
 import 'package:umbiapps/pages/pesananSayaPage.dart';
-import 'package:umbiapps/pages/pilihanLokasiPage.dart';
 
 void main()=> runApp(MyApp());
 
@@ -31,7 +30,6 @@ class MyApp extends StatelessWidget{
         "Bayar"    : (context) => payPage(),
         "Pin"      : (context) => pinPage(),
         "Location" : (context) => pesananSayaPage(),
-        "PilihanLokasi" : (context) => pilihanLokasiPage(),
       },
     ); //MaterialApp
   }
