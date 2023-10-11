@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:umbiapps/pages/Homepage.dart';
 import 'package:umbiapps/widgets/paybar2.dart';
+import 'package:http/http.dart' as http;
 
 class pesananSayaPage extends StatefulWidget {
   @override
@@ -68,7 +69,7 @@ class _pesananSayaPageState extends State<pesananSayaPage> {
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               color: Colors.white, // Warna latar belakang tombol
               child: ElevatedButton(
-                onPressed: isButtonEnabled ? () => _showModal() : null,
+                onPressed: isButtonEnabled ? () => _showModal('buka') : null,
                 style: ElevatedButton.styleFrom(
                   // Mengatur ukuran tombol
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -173,8 +174,20 @@ class _pesananSayaPageState extends State<pesananSayaPage> {
     ),
   );
 }
-void _showModal() {
+void _showModal(param) async {
   // Tampilkan modal dialog di sini
+
+  final url = 'http://192.168.43.2:80/parameter?param='+param;
+    final response = await http.get(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      print('Permintaan berhasil');
+      // Lakukan sesuatu di sini jika permintaan berhasil
+    } else {
+      print('Gagal melakukan permintaan: ${response.statusCode}');
+      // Lakukan sesuatu di sini jika permintaan gagal
+    }
+
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -194,6 +207,8 @@ void _showModal() {
                     builder: (context) => HomePage(), // Ganti dengan halaman yang Anda inginkan
                   ),
                 );
+                
+                // _showModal('tutup');
               },
               child: Text("Kembali ke Halaman Utama"),
             ),
