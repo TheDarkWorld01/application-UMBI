@@ -29,12 +29,6 @@ class payBar extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(),
-          Icon(
-            Icons.more_vert,
-            size: 30,
-            color: Color(0xFF4C53A5),
-          ),
         ],
       ),
     );

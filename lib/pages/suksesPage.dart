@@ -34,21 +34,22 @@ class _SuccessPageState extends State<SuccessPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             AnimatedContainer(
-                duration: Duration(seconds: 1),
-                curve: Curves.easeInOut,
-                width: _isLoading ? 0 : 100,
-                height: _isLoading ? 0 : 100,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  shape: BoxShape.circle,
-                ),
-                child: _isLoading
-                    ? Container()
-                    : Icon(
-                        Icons.check,
-                        color: Colors.white,
-                        size: 60,
-                      )),
+              duration: Duration(seconds: 1),
+              curve: Curves.easeInOut,
+              width: _isLoading ? 0 : 100,
+              height: _isLoading ? 0 : 100,
+              decoration: BoxDecoration(
+                color: Colors.green,
+                shape: BoxShape.circle,
+              ),
+              child: _isLoading
+                  ? Container()
+                  : Icon(
+                      Icons.check,
+                      color: Colors.white,
+                      size: 60,
+                    ),
+            ),
             SizedBox(
               height: 16,
             ),
@@ -61,6 +62,27 @@ class _SuccessPageState extends State<SuccessPage> {
                       color: Colors.green,
                     ),
                   ),
+            if (!_isLoading) // Tampilkan teks 'Kode Pesanan' hanya jika loading sudah selesai
+              Container(
+                width: MediaQuery.of(context).size.width *
+                    0.7, // Atur lebar sesuai kebutuhan Anda
+                child: Column(
+                  children: [
+                    SizedBox(height: 8), // Berikan sedikit jarak vertikal
+                    Divider(
+                      thickness: 2, // Atur ketebalan garis
+                    ), // Garis pemisah
+                    SizedBox(height: 8), // Berikan sedikit jarak vertikal
+                    Text(
+                      'Kode Pesanan #QR201224001', // Teks 'Kode Pesanan'
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             SizedBox(height: 24),
             _isLoading
                 ? Container()
@@ -69,7 +91,9 @@ class _SuccessPageState extends State<SuccessPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => pesananSayaPage()));
+                              builder: (context) => pesananSayaPage(),
+                          ),
+                      );
                     },
                     child: Text('Pesanan Saya'),
                     style: ElevatedButton.styleFrom(

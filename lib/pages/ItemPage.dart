@@ -38,7 +38,7 @@ class ItemPage extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            "KFC",
+                            "Fried Chicken",
                             style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.bold,

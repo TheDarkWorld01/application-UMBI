@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:umbiapps/pages/splash.dart';
 import 'package:umbiapps/pages/Homepage.dart';
 import 'package:umbiapps/pages/CartPage.dart';
 import 'package:umbiapps/pages/ItemPage.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget{
        scaffoldBackgroundColor: Colors.white,
       ), //ThemeData
       routes: {
-        "/" : (context) => HomePage(),
+        "/" : (context) => SplashScreen(),
         "CartPage" : (context) => CartPage(),
         "ItemPage" : (context) => ItemPage(),
         "Home"     : (context) => HomePage(), 
@@ -31,6 +32,6 @@ class MyApp extends StatelessWidget{
         "Pin"      : (context) => pinPage(),
         "Location" : (context) => pesananSayaPage(),
       },
-    ); //MaterialApp
+    );
   }
 }

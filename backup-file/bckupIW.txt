@@ -1,15 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:umbiapps/widgets/CartItemSamples.dart';
 
 class ItemsWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder<SharedPreferences>(
+      future: SharedPreferences.getInstance(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return CircularProgressIndicator();
+        }
+
+        final sharedPreferences = snapshot.data!;
+        final cartItems = sharedPreferences.getStringList('cartItems') ?? [];
+
+        void addToCart(String product) {
+          cartItems.add(product);
+          sharedPreferences.setStringList('cartItems', cartItems);
+        }
+
         return GridView.count(
           childAspectRatio: 0.68,
           physics: NeverScrollableScrollPhysics(),
           crossAxisCount: 2,
           shrinkWrap: true,
           children: [
-              Container(
+            GestureDetector(
+              onTap: () {
+                addToCart("Fried Chicken");
+              },
+              child: Container(
                 padding: EdgeInsets.only(left: 15, right: 15, top: 10),
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                 decoration: BoxDecoration(
@@ -91,7 +112,9 @@ class ItemsWidget extends StatelessWidget{
                             ),
                           ),
                           Icon(
-                            Icons.shopping_cart_checkout,
+                            cartItems.contains("Fried Chicken")
+                              ? Icons.shopping_cart
+                              : Icons.shopping_cart_checkout,
                             color: Color(0xFF4C53A5),
                           ),
                         ],
@@ -100,8 +123,13 @@ class ItemsWidget extends StatelessWidget{
                   ],
                 ),
               ),
+            ),
             //2
-              Container(
+            GestureDetector(
+              onTap: () {
+                addToCart("Burger Deluxe");
+              },
+              child: Container(
                 padding: EdgeInsets.only(left: 15, right: 15, top: 10),
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                 decoration: BoxDecoration(
@@ -181,7 +209,9 @@ class ItemsWidget extends StatelessWidget{
                             ),
                           ),
                           Icon(
-                            Icons.shopping_cart_checkout,
+                            cartItems.contains("Burger Deluxe")
+                             ? Icons.shopping_cart
+                             :Icons.shopping_cart_checkout,
                             color: Color(0xFF4C53A5),
                           ),
                         ],
@@ -190,8 +220,13 @@ class ItemsWidget extends StatelessWidget{
                   ],
                 ),
               ),
+            ),
             //3
-              Container(
+            GestureDetector(
+              onTap: () {
+                addToCart("Sushi Salmon");
+              },
+              child: Container(
                 padding: EdgeInsets.only(left: 15, right: 15, top: 10),
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                 decoration: BoxDecoration(
@@ -271,7 +306,9 @@ class ItemsWidget extends StatelessWidget{
                             ),
                           ),
                           Icon(
-                            Icons.shopping_cart_checkout,
+                            cartItems.contains("Sushi Salmon")
+                              ? Icons.shopping_cart
+                              : Icons.shopping_cart_checkout,
                             color: Color(0xFF4C53A5),
                           ),
                         ],
@@ -280,8 +317,13 @@ class ItemsWidget extends StatelessWidget{
                   ],
                 ),
               ),
+            ),
             //4
-              Container(
+            GestureDetector(
+              onTap: () {
+                addToCart("Takoyaki Omayo");
+              },
+              child: Container(
                 padding: EdgeInsets.only(left: 15, right: 15, top: 10),
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                 decoration: BoxDecoration(
@@ -361,7 +403,9 @@ class ItemsWidget extends StatelessWidget{
                             ),
                           ),
                           Icon(
-                            Icons.shopping_cart_checkout,
+                            cartItems.contains("Takoyaki Omayo")
+                                ? Icons.shopping_cart
+                                : Icons.shopping_cart_checkout,
                             color: Color(0xFF4C53A5),
                           ),
                         ],
@@ -370,8 +414,13 @@ class ItemsWidget extends StatelessWidget{
                   ],
                 ),
               ),
+            ),
             //5
-              Container(
+            GestureDetector(
+              onTap: () {
+                addToCart("Orange Juice");
+              },
+              child: Container(
                 padding: EdgeInsets.only(left: 15, right: 15, top: 10),
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                 decoration: BoxDecoration(
@@ -451,7 +500,9 @@ class ItemsWidget extends StatelessWidget{
                             ),
                           ),
                           Icon(
-                            Icons.shopping_cart_checkout,
+                            cartItems.contains("Orange Juice")
+                                ? Icons.shopping_cart
+                                : Icons.shopping_cart_checkout,
                             color: Color(0xFF4C53A5),
                           ),
                         ],
@@ -460,8 +511,13 @@ class ItemsWidget extends StatelessWidget{
                   ],
                 ),
               ),
+            ),
             //6
-              Container(
+            GestureDetector(
+              onTap: () {
+                addToCart("Coca Cola");
+              },
+              child: Container(
                 padding: EdgeInsets.only(left: 15, right: 15, top: 10),
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                 decoration: BoxDecoration(
@@ -541,7 +597,9 @@ class ItemsWidget extends StatelessWidget{
                             ),
                           ),
                           Icon(
-                            Icons.shopping_cart_checkout,
+                            cartItems.contains("Coca Cola")
+                                ? Icons.shopping_cart
+                                : Icons.shopping_cart_checkout,
                             color: Color(0xFF4C53A5),
                           ),
                         ],
@@ -550,8 +608,13 @@ class ItemsWidget extends StatelessWidget{
                   ],
                 ),
               ),
+            ),
             //7
-              Container(
+            GestureDetector(
+              onTap: () {
+                addToCart("Coconut Syrup");
+              },
+              child: Container(
                 padding: EdgeInsets.only(left: 15, right: 15, top: 10),
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                 decoration: BoxDecoration(
@@ -631,7 +694,9 @@ class ItemsWidget extends StatelessWidget{
                             ),
                           ),
                           Icon(
-                            Icons.shopping_cart_checkout,
+                            cartItems.contains("Coconut Syrup")
+                                ? Icons.shopping_cart
+                                : Icons.shopping_cart_checkout,
                             color: Color(0xFF4C53A5),
                           ),
                         ],
@@ -640,8 +705,13 @@ class ItemsWidget extends StatelessWidget{
                   ],
                 ),
               ),
+            ),
             //8
-              Container(
+            GestureDetector(
+              onTap: () {
+                addToCart("Es Teh Indonesia");
+              },
+              child: Container(
                 padding: EdgeInsets.only(left: 15, right: 15, top: 10),
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                 decoration: BoxDecoration(
@@ -721,7 +791,9 @@ class ItemsWidget extends StatelessWidget{
                             ),
                           ),
                           Icon(
-                            Icons.shopping_cart_checkout,
+                            cartItems.contains("Es Teh Indoneisa")
+                                ? Icons.shopping_cart
+                                : Icons.shopping_cart_checkout,
                             color: Color(0xFF4C53A5),
                           ),
                         ],
@@ -730,7 +802,21 @@ class ItemsWidget extends StatelessWidget{
                   ],
                 ),
               ),
-            ],
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Navigasi ke halaman keranjang belanja dengan daftar produk yang telah dipilih
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CartItemSamples(cartItems: cartItems),
+                  ),
+                );
+              },
+            ),
+          ],
         );
+      },
+    );
   }
 }
