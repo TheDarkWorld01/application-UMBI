@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:umbiapps/pages/successPage.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:umbiapps/pages/suksesPage.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart'; // Mengimpor paket yang diperlukan
 
 class pinPage extends StatefulWidget {
@@ -9,7 +10,8 @@ class pinPage extends StatefulWidget {
 
 class _pinPageState extends State<pinPage> {
   String enteredPin = '';
-  bool showSpinner = false; // Variabel untuk mengontrol tampilan modal progress HUD
+  bool showSpinner =
+      false; // Variabel untuk mengontrol tampilan modal progress HUD
 
   void _handlePinButtonPress(String digit) {
     if (enteredPin.length < 4) {
@@ -153,12 +155,17 @@ class _pinPageState extends State<pinPage> {
   Widget _buildPinButton(String digit) {
     return ElevatedButton(
       onPressed: () => _handlePinButtonPress(digit),
-      child: Text(''),
+      child: Text(digit,
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold
+        ),
+      ),
       style: ElevatedButton.styleFrom(
         primary: Colors.white,
         onPrimary: Colors.purple,
         shape: CircleBorder(),
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(25),
       ),
     );
   }
@@ -167,15 +174,14 @@ class _pinPageState extends State<pinPage> {
     return ElevatedButton(
       onPressed: _handleClearButtonPress,
       child: Icon(
-        Icons.clear_sharp,
+        CupertinoIcons.delete_left,
         color: Colors.purple,
-        size: 16,
       ),
       style: ElevatedButton.styleFrom(
         primary: Colors.white,
-        onPrimary: const Color.fromARGB(255, 38, 34, 39),
+        onPrimary: Colors.purple,
         shape: CircleBorder(),
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(20),
       ),
     );
   }
