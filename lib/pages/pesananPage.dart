@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:umbiapps/pages/Homepage.dart';
+import 'package:umbiapps/pages/lokasi.dart';
 import 'package:umbiapps/widgets/paybar2.dart';
+import 'package:http/http.dart' as http;
 
 class pesananSayaPage extends StatefulWidget {
   @override
@@ -30,8 +32,8 @@ class _pesananSayaPageState extends State<pesananSayaPage> {
             children: [
               payBarii(),
               Container(
-                height: 350,
-                padding: EdgeInsets.only(bottom: 15),
+                height: 700,
+                padding: EdgeInsets.only(top: 15),
                 decoration: BoxDecoration(
                   color: Color(0xFFEDECF2),
                   borderRadius: BorderRadius.only(
@@ -39,6 +41,32 @@ class _pesananSayaPageState extends State<pesananSayaPage> {
                     bottomRight: Radius.circular(35),
                   ),
                 ),
+              ),
+              Column(
+                children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(
+                            builder: (context) => LokasiPage()
+                          )
+                        );
+                      },
+                      child: Text(
+                        "CEK LOKASI",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
               Column(
                 children: [
@@ -68,7 +96,7 @@ class _pesananSayaPageState extends State<pesananSayaPage> {
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               color: Colors.white, // Warna latar belakang tombol
               child: ElevatedButton(
-                onPressed: isButtonEnabled ? () => _showModal() : null,
+                onPressed: isButtonEnabled ? () => _showModal('buka') : null,
                 style: ElevatedButton.styleFrom(
                   // Mengatur ukuran tombol
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -173,8 +201,20 @@ class _pesananSayaPageState extends State<pesananSayaPage> {
     );
   }
 
-  void _showModal() {
+  void _showModal(param) async {
     // Tampilkan modal dialog di sini
+
+    final url = 'http://192.168.100.51:80/parameter?param=' + param;
+    final response = await http.get(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      print('Permintaan berhasil');
+      // Lakukan sesuatu di sini jika permintaan berhasil
+    } else {
+      print('Gagal melakukan permintaan: ${response.statusCode}');
+      // Lakukan sesuatu di sini jika permintaan gagal
+    }
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -195,6 +235,8 @@ class _pesananSayaPageState extends State<pesananSayaPage> {
                           HomePage(), // Ganti dengan halaman yang Anda inginkan
                     ),
                   );
+
+                  // _showModal('tutup');
                 },
                 child: Text("Kembali ke Halaman Utama"),
               ),
