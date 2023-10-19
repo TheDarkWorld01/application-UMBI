@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:umbiapps/pages/Homepage.dart';
 import 'package:umbiapps/widgets/paybar2.dart';
+import 'package:flutter_mapbox_navigation/flutter_mapbox_navigation.dart';
+import 'package:umbiapps/widgets/map_screen.dart';
 
 class pesananSayaPage extends StatefulWidget {
   @override
@@ -31,15 +33,40 @@ class _pesananSayaPageState extends State<pesananSayaPage> {
               payBarii(),
               Container(
                 height: 350,
-                padding: EdgeInsets.only(bottom: 15),
-                decoration: BoxDecoration(
-                  color: Color(0xFFEDECF2),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(35),
-                    bottomRight: Radius.circular(35),
-                  ),
+                child: Stack(
+                  children: [
+                    MapScreen(),
+                    Positioned(
+                      bottom: 10,
+                      right: 0,
+                      child: Container(
+                        margin: EdgeInsets.only(right: 16),
+                        child: ElevatedButton(
+                          onPressed:
+                              isButtonEnabled ? () => _startNavigation() : null,
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            backgroundColor: Colors.white,
+                          ),
+                          child: Text(
+                            "Mulai Navigasi",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF4C53A5),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
+
               Column(
                 children: [
                   Container(
@@ -210,6 +237,34 @@ class _pesananSayaPageState extends State<pesananSayaPage> {
           ],
         );
       },
+    );
+  }
+
+  void _startNavigation() {
+    var wayPoints = <WayPoint>[];
+
+    wayPoints.add(WayPoint(
+      name: "Umbi",
+      latitude: -7.555409545446937,
+      longitude: 110.86170492566534,
+    ));
+    wayPoints.add(WayPoint(
+      name: "Solo Technopark",
+      latitude: -7.55589902163816,
+      longitude: 110.85379139460645,
+    ));
+
+    MapBoxOptions options = MapBoxOptions(
+      mode: MapBoxNavigationMode.driving,
+      simulateRoute: true,
+      language: "id",
+      allowsUTurnAtWayPoints: true,
+      units: VoiceUnits.metric,
+    );
+
+    MapBoxNavigation.instance.startNavigation(
+      wayPoints: wayPoints,
+      options: options,
     );
   }
 }
