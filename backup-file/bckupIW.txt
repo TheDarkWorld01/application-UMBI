@@ -1,0 +1,822 @@
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:umbiapps/widgets/CartItemSamples.dart';
+
+class ItemsWidget extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<SharedPreferences>(
+      future: SharedPreferences.getInstance(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return CircularProgressIndicator();
+        }
+
+        final sharedPreferences = snapshot.data!;
+        final cartItems = sharedPreferences.getStringList('cartItems') ?? [];
+
+        void addToCart(String product) {
+          cartItems.add(product);
+          sharedPreferences.setStringList('cartItems', cartItems);
+        }
+
+        return GridView.count(
+          childAspectRatio: 0.68,
+          physics: NeverScrollableScrollPhysics(),
+          crossAxisCount: 2,
+          shrinkWrap: true,
+          children: [
+            GestureDetector(
+              onTap: () {
+                addToCart("Fried Chicken");
+              },
+              child: Container(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          // decoration: BoxDecoration(
+                          //   color: Color(0xFF4C53A5),
+                          //   borderRadius: BorderRadius.circular(20)
+                          // ),
+                          // child: Text(
+                          //   "1 PCS",
+                          //   style: TextStyle(
+                          //     fontSize: 14,
+                          //     color: Colors.white,
+                          //     fontWeight: FontWeight.bold
+                          //   ),
+                          // ),
+                        ),
+                        // Icon(
+                        //   Icons.favorite_border,
+                        //   color: Colors.red,
+                        // ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "ItemPage");
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "asset/images/1.png",
+                          height: 120,
+                          width: 120,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 8),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Fried Chicken",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Ayam tepung digoreng",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\Rp.18.000",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF4C53A5),
+                            ),
+                          ),
+                          Icon(
+                            cartItems.contains("Fried Chicken")
+                              ? Icons.shopping_cart
+                              : Icons.shopping_cart_checkout,
+                            color: Color(0xFF4C53A5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            //2
+            GestureDetector(
+              onTap: () {
+                addToCart("Burger Deluxe");
+              },
+              child: Container(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          // decoration: BoxDecoration(
+                          //     color: Color(0xFF4C53A5),
+                          //     borderRadius: BorderRadius.circular(20)),
+                          // child: Text(
+                          //   "1 PCS",
+                          //   style: TextStyle(
+                          //       fontSize: 14,
+                          //       color: Colors.white,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
+                        ),
+                        // Icon(
+                        //   Icons.favorite_border,
+                        //   color: Colors.red,
+                        // ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "ItemPage");
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "asset/images/2.png",
+                          height: 120,
+                          width: 120,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 8),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Burger Deluxe",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Burger Extra Besar",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\Rp.35.000",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF4C53A5),
+                            ),
+                          ),
+                          Icon(
+                            cartItems.contains("Burger Deluxe")
+                             ? Icons.shopping_cart
+                             :Icons.shopping_cart_checkout,
+                            color: Color(0xFF4C53A5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            //3
+            GestureDetector(
+              onTap: () {
+                addToCart("Sushi Salmon");
+              },
+              child: Container(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          // decoration: BoxDecoration(
+                          //     color: Color(0xFF4C53A5),
+                          //     borderRadius: BorderRadius.circular(20)),
+                          // child: Text(
+                          //   "1 PCS",
+                          //   style: TextStyle(
+                          //       fontSize: 14,
+                          //       color: Colors.white,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
+                        ),
+                        // Icon(
+                        //   Icons.favorite_border,
+                        //   color: Colors.red,
+                        // ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "ItemPage");
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "asset/images/3.png",
+                          height: 120,
+                          width: 120,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 8),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Sushi Salmon",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Fish Sushi Seaweed",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\Rp.45.000",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF4C53A5),
+                            ),
+                          ),
+                          Icon(
+                            cartItems.contains("Sushi Salmon")
+                              ? Icons.shopping_cart
+                              : Icons.shopping_cart_checkout,
+                            color: Color(0xFF4C53A5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            //4
+            GestureDetector(
+              onTap: () {
+                addToCart("Takoyaki Omayo");
+              },
+              child: Container(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          // decoration: BoxDecoration(
+                          //     color: Color(0xFF4C53A5),
+                          //     borderRadius: BorderRadius.circular(20)),
+                          // child: Text(
+                          //   "1 PCS",
+                          //   style: TextStyle(
+                          //       fontSize: 14,
+                          //       color: Colors.white,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
+                        ),
+                        // Icon(
+                        //   Icons.favorite_border,
+                        //   color: Colors.red,
+                        // ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "ItemPage");
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "asset/images/4.png",
+                          height: 120,
+                          width: 120,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 8),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Takoyaki Omayo",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Takoyaki mayonaise",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\Rp.45.000",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF4C53A5),
+                            ),
+                          ),
+                          Icon(
+                            cartItems.contains("Takoyaki Omayo")
+                                ? Icons.shopping_cart
+                                : Icons.shopping_cart_checkout,
+                            color: Color(0xFF4C53A5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            //5
+            GestureDetector(
+              onTap: () {
+                addToCart("Orange Juice");
+              },
+              child: Container(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          // decoration: BoxDecoration(
+                          //     color: Color(0xFF4C53A5),
+                          //     borderRadius: BorderRadius.circular(20)),
+                          // child: Text(
+                          //   "1 PCS",
+                          //   style: TextStyle(
+                          //       fontSize: 14,
+                          //       color: Colors.white,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
+                        ),
+                        // Icon(
+                        //   Icons.favorite_border,
+                        //   color: Colors.red,
+                        // ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "ItemPage");
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "asset/images/5.png",
+                          height: 120,
+                          width: 120,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 8),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Orange Juice",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Orange Juice",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\Rp.5.000",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF4C53A5),
+                            ),
+                          ),
+                          Icon(
+                            cartItems.contains("Orange Juice")
+                                ? Icons.shopping_cart
+                                : Icons.shopping_cart_checkout,
+                            color: Color(0xFF4C53A5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            //6
+            GestureDetector(
+              onTap: () {
+                addToCart("Coca Cola");
+              },
+              child: Container(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          // decoration: BoxDecoration(
+                          //     color: Color(0xFF4C53A5),
+                          //     borderRadius: BorderRadius.circular(20)),
+                          // child: Text(
+                          //   "1 PCS",
+                          //   style: TextStyle(
+                          //       fontSize: 14,
+                          //       color: Colors.white,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
+                        ),
+                        // Icon(
+                        //   Icons.favorite_border,
+                        //   color: Colors.red,
+                        // ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "ItemPage");
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "asset/images/6.png",
+                          height: 120,
+                          width: 120,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 8),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Coca Cola",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Coca Cola",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\Rp.5.000",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF4C53A5),
+                            ),
+                          ),
+                          Icon(
+                            cartItems.contains("Coca Cola")
+                                ? Icons.shopping_cart
+                                : Icons.shopping_cart_checkout,
+                            color: Color(0xFF4C53A5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            //7
+            GestureDetector(
+              onTap: () {
+                addToCart("Coconut Syrup");
+              },
+              child: Container(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          // decoration: BoxDecoration(
+                          //     color: Color(0xFF4C53A5),
+                          //     borderRadius: BorderRadius.circular(20)),
+                          // child: Text(
+                          //   "1 PCS",
+                          //   style: TextStyle(
+                          //       fontSize: 14,
+                          //       color: Colors.white,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
+                        ),
+                        // Icon(
+                        //   Icons.favorite_border,
+                        //   color: Colors.red,
+                        // ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "ItemPage");
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "asset/images/7.png",
+                          height: 120,
+                          width: 120,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 8),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Coconut Syrup",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Sirup Kelapa",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\Rp.8.000",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF4C53A5),
+                            ),
+                          ),
+                          Icon(
+                            cartItems.contains("Coconut Syrup")
+                                ? Icons.shopping_cart
+                                : Icons.shopping_cart_checkout,
+                            color: Color(0xFF4C53A5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            //8
+            GestureDetector(
+              onTap: () {
+                addToCart("Es Teh Indonesia");
+              },
+              child: Container(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          // decoration: BoxDecoration(
+                          //     color: Color(0xFF4C53A5),
+                          //     borderRadius: BorderRadius.circular(20)),
+                          // child: Text(
+                          //   "1 PCS",
+                          //   style: TextStyle(
+                          //       fontSize: 14,
+                          //       color: Colors.white,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
+                        ),
+                        // Icon(
+                        //   Icons.favorite_border,
+                        //   color: Colors.red,
+                        // ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "ItemPage");
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "asset/images/8.png",
+                          height: 120,
+                          width: 120,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 8),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Es Teh Indonesia",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Es Teh mamanx",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\Rp.8.000",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF4C53A5),
+                            ),
+                          ),
+                          Icon(
+                            cartItems.contains("Es Teh Indoneisa")
+                                ? Icons.shopping_cart
+                                : Icons.shopping_cart_checkout,
+                            color: Color(0xFF4C53A5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Navigasi ke halaman keranjang belanja dengan daftar produk yang telah dipilih
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CartItemSamples(cartItems: cartItems),
+                  ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
